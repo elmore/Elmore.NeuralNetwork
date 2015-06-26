@@ -37,5 +37,11 @@ namespace Elmore.NeuralNetwork.Test
 
             Assert.AreEqual(0d, neuron.Output());
         }
+
+        [Test]
+        public void ClassifiesSmallImages()
+        {
+
+        }
     }
 }

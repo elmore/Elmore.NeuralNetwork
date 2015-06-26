@@ -7,5 +7,13 @@ namespace Elmore.NeuralNetwork
 {
     public class Perceptron
     {
+
+
+        public int Classify(int[] arr)
+        {
+            return 0;
+        }
+
+
     }
 }
