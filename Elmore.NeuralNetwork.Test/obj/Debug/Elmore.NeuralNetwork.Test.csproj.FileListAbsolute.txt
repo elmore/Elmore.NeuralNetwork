@@ -1,0 +1,9 @@
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork.Test\bin\Debug\Elmore.NeuralNetwork.Test.dll
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork.Test\bin\Debug\Elmore.NeuralNetwork.Test.pdb
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork.Test\bin\Debug\Elmore.NeuralNetwork.dll
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork.Test\bin\Debug\nunit.framework.dll
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork.Test\bin\Debug\Elmore.NeuralNetwork.pdb
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork.Test\bin\Debug\nunit.framework.xml
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork.Test\obj\Debug\Elmore.NeuralNetwork.Test.csprojResolveAssemblyReference.cache
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork.Test\obj\Debug\Elmore.NeuralNetwork.Test.dll
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork.Test\obj\Debug\Elmore.NeuralNetwork.Test.pdb

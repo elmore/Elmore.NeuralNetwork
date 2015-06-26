@@ -1,0 +1,5 @@
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork\bin\Debug\Elmore.NeuralNetwork.dll
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork\bin\Debug\Elmore.NeuralNetwork.pdb
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork\obj\Debug\Elmore.NeuralNetwork.csprojResolveAssemblyReference.cache
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork\obj\Debug\Elmore.NeuralNetwork.dll
+C:\dev\tom\Elmore.NeuralNetwork\Elmore.NeuralNetwork\obj\Debug\Elmore.NeuralNetwork.pdb

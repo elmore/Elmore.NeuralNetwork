@@ -39,6 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dendrite.cs" />
+    <Compile Include="IMulitInput.cs" />
+    <Compile Include="Input.cs" />
+    <Compile Include="ISingleInput.cs" />
+    <Compile Include="ISingleOutput.cs" />
+    <Compile Include="Neuron.cs" />
     <Compile Include="Perceptron.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
