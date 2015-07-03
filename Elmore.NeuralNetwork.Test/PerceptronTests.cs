@@ -1,7 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Drawing;
 using NUnit.Framework;
 
 namespace Elmore.NeuralNetwork.Test
@@ -68,35 +65,6 @@ namespace Elmore.NeuralNetwork.Test
 
             Assert.AreEqual("A", network.Classify(aData));
             Assert.AreEqual("B", network.Classify(bData));
-        }
-    }
-
-    public class InputProcessor
-    {
-        private readonly string _basePath;
-
-        public InputProcessor(string basePath)
-        {
-            _basePath = basePath;
-        }
-
-        public string FullPath(string filename)
-        {
-            return Path.Combine(_basePath, filename);
-        }
-
-        public byte[] JpgToBinaryArr(string file)
-        {
-            string path = FullPath(file);
-
-            Image img = Image.FromFile(path);
-
-            using (var ms = new MemoryStream())
-            {
-                img.Save(ms, ImageFormat.Jpeg);
-
-                return ms.ToArray();
-            }
         }
     }
 }
