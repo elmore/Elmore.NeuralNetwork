@@ -27,7 +27,7 @@ namespace Elmore.NeuralNetwork.Test
             using (var ms = new MemoryStream())
             {
                 img.Save(ms, ImageFormat.Jpeg);
-
+                
                 return ms.ToArray();
             }
         }

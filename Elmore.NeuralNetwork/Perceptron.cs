@@ -1,36 +1,68 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Elmore.NeuralNetwork
 {
     public class Perceptron
     {
         private readonly Neuron _neuron = new Neuron(0);
+        private readonly List<Dendrite> _dendrites = new List<Dendrite>();
+        private readonly List<Input> _inputs = new List<Input>();
+        private const double _learningRate = 0.2;
 
-
-        public string Classify(byte[] arr)
+        public double Classify(byte[] arr)
         {
-            return (int)_neuron.Output() == 1 ? "" : "";
+            // setup all inputs
+            for (var i=0; i< arr.Length; i++)
+            {
+                //_inputs[i].Signal = arr[i];
+            }
+
+            // run the network
+            return _neuron.Output();
         }
 
-        public void AddInput(ISingleOutput simpleInput)
+        public void AddInput(Input simpleInput)
         {
+            // dendrite has weight
             var dendrite = new Dendrite();
 
+            // keep ref for training
+            _dendrites.Add(dendrite);
+
+            // keep ref for classifying
+            _inputs.Add(simpleInput);
+
+            // connect to the input
             dendrite.SetConnection(simpleInput);
 
+            // connect to the neuron
             _neuron.Connect(dendrite);
         }
 
-        public void Train(string desiredOutput, byte[] pattern)
+        public void Train(double desiredOutput, byte[] pattern)
         {
+            double output = Classify(pattern);
 
+            if (desiredOutput != output)
+            {
+                double err = desiredOutput - output;
+
+                for (int i = 0; i < pattern.Length; i++)
+                {
+                    var newWeight = _dendrites[i].Weight + (_learningRate * err * pattern[i]);
+
+                    _dendrites[i].Weight = newWeight;
+                }
+
+                double newThreshold = _neuron.Threshold - (_learningRate * err);
+
+                _neuron.Threshold = newThreshold;
+            }
         }
 
-        public void Train(Dictionary<string, byte[]> dataset)
+        public void Train(List<KeyValuePair<double, byte[]>> dataset)
         {
-            foreach (KeyValuePair<string, byte[]> pair in dataset)
+            foreach (KeyValuePair<double, byte[]> pair in dataset)
             {
                 Train(pair.Key, pair.Value);
             }
