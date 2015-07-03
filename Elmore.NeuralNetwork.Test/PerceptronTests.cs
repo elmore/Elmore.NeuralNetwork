@@ -43,19 +43,28 @@ namespace Elmore.NeuralNetwork.Test
         {
             var network = new PerceptronFactory().BuildPerceptron(100);
 
-            var imgLocation = @"..\..\img";
-
-            var helper = new InputProcessor(imgLocation);
-            byte[] aData = helper.JpgToBinaryArr("a.jpg");
-            byte[] bData = helper.JpgToBinaryArr("b.jpg");
+            var aSet = new InputProcessor(@"..\..\trainingsets\dataset1\A");
+            var bSet = new InputProcessor(@"..\..\trainingsets\dataset1\B");
 
             var trainingSet = new Dictionary<string, byte[]>
             {
-                { "A", aData },
-                { "B", bData }
+                { "A", aSet.JpgToBinaryArr(@"1.jpg") },
+                { "A", aSet.JpgToBinaryArr(@"2.jpg") },
+                { "A", aSet.JpgToBinaryArr(@"3.jpg") },
+                { "A", aSet.JpgToBinaryArr(@"4.jpg") },
+                { "A", aSet.JpgToBinaryArr(@"5.jpg") },
+
+                { "B", bSet.JpgToBinaryArr(@"1.jpg") },
+                { "B", bSet.JpgToBinaryArr(@"2.jpg") },
+                { "B", bSet.JpgToBinaryArr(@"3.jpg") },
+                { "B", bSet.JpgToBinaryArr(@"4.jpg") },
+                { "B", bSet.JpgToBinaryArr(@"5.jpg") },
             };
 
             network.Train(trainingSet);
+
+            var aData = aSet.JpgToBinaryArr(@"6.jpg");
+            var bData = bSet.JpgToBinaryArr(@"6.jpg");
 
             Assert.AreEqual("A", network.Classify(aData));
             Assert.AreEqual("B", network.Classify(bData));
