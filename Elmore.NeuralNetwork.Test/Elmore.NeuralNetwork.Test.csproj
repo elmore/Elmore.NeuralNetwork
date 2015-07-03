@@ -57,8 +57,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="img\a.jpg" />
-    <Content Include="img\b.jpg" />
+    <Content Include="trainingsets\dataset1\A\1.jpg" />
+    <Content Include="trainingsets\dataset1\A\2.jpg" />
+    <Content Include="trainingsets\dataset1\A\3.jpg" />
+    <Content Include="trainingsets\dataset1\A\4.jpg" />
+    <Content Include="trainingsets\dataset1\A\5.jpg" />
+    <Content Include="trainingsets\dataset1\A\6.jpg" />
+    <Content Include="trainingsets\dataset1\B\1.jpg" />
+    <Content Include="trainingsets\dataset1\B\2.jpg" />
+    <Content Include="trainingsets\dataset1\B\3.jpg" />
+    <Content Include="trainingsets\dataset1\B\4.jpg" />
+    <Content Include="trainingsets\dataset1\B\5.jpg" />
+    <Content Include="trainingsets\dataset1\B\6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
