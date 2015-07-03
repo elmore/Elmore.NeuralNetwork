@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elmore.NeuralNetwork", "Elmore.NeuralNetwork.csproj", "{FA37BD03-7D68-4DF9-8013-C192076328A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elmore.NeuralNetwork", "Elmore.NeuralNetwork\Elmore.NeuralNetwork.csproj", "{FA37BD03-7D68-4DF9-8013-C192076328A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elmore.NeuralNetwork.Test", "..\Elmore.NeuralNetwork.Test\Elmore.NeuralNetwork.Test.csproj", "{54165CF9-1BF2-4403-8FB9-C0F89E3D61BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elmore.NeuralNetwork.Test", "Elmore.NeuralNetwork.Test\Elmore.NeuralNetwork.Test.csproj", "{54165CF9-1BF2-4403-8FB9-C0F89E3D61BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

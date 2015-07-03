@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
@@ -41,7 +40,22 @@ namespace Elmore.NeuralNetwork.Test
         [Test]
         public void ClassifiesSmallImages()
         {
+            var network = new PerceptronFactory().BuildPerceptron(100);
 
+            var helper = new InputProcessor("img");
+            int[] aData = helper.JpgToBinaryArr("a.jpg");
+            int[] bData = helper.JpgToBinaryArr("b.jpg");
+
+            var trainingSet = new Dictionary<string, int[]>
+            {
+                { "A", aData },
+                { "B", bData }
+            };
+
+            network.Train(trainingSet);
+
+            Assert.AreEqual("A", network.Classify(aData));
+            Assert.AreEqual("B", network.Classify(bData));
         }
     }
 }

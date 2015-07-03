@@ -46,6 +46,7 @@
     <Compile Include="ISingleOutput.cs" />
     <Compile Include="Neuron.cs" />
     <Compile Include="Perceptron.cs" />
+    <Compile Include="PerceptronFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
