@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Collections.Generic;
+
 namespace Elmore.NeuralNetwork
 {
     public class Perceptron
@@ -6,9 +9,9 @@ namespace Elmore.NeuralNetwork
         private readonly Neuron _neuron = new Neuron(0);
 
 
-        public int Classify(int[] arr)
+        public string Classify(byte[] arr)
         {
-            return (int)_neuron.Output();
+            return (int)_neuron.Output() == 1 ? "" : "";
         }
 
         public void AddInput(ISingleOutput simpleInput)
@@ -20,9 +23,17 @@ namespace Elmore.NeuralNetwork
             _neuron.Connect(dendrite);
         }
 
-        public void Train(string desiredOutput, int[] pattern)
+        public void Train(string desiredOutput, byte[] pattern)
         {
 
+        }
+
+        public void Train(Dictionary<string, byte[]> dataset)
+        {
+            foreach (KeyValuePair<string, byte[]> pair in dataset)
+            {
+                Train(pair.Key, pair.Value);
+            }
         }
     }
 }
