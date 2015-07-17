@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace Elmore.NeuralNetwork.Test
@@ -72,7 +73,20 @@ namespace Elmore.NeuralNetwork.Test
         {
             var aSet = new InputProcessor(@"..\..\trainingsets\dataset1\A");
 
-            byte[] arr = aSet.JpgToBinaryArr(@"1.bmp");
+            int[] arr = aSet.BmpToBinaryArr(@"1.bmp");
+
+
+            string line = string.Empty;
+            for (int i=1;i<=arr.Length;i++)
+            {
+                line += (arr[i-1] == 1 ? "#" : ".");
+                
+                if (i%10 == 0)
+                {
+                    Console.WriteLine(line);
+                    line = string.Empty;
+                }
+            }
 
             Assert.AreEqual(100, arr.Length);
         }
