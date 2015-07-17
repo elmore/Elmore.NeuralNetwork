@@ -106,8 +106,8 @@ namespace Elmore.NeuralNetwork.Test
             var aData = aSet.BmpToBinaryArr(@"6.jpg");
             var bData = bSet.BmpToBinaryArr(@"6.jpg");
 
-            Assert.AreEqual(network.Classify(aData), 1.0);
-            Assert.AreEqual(network.Classify(bData), 0.0);
+            Assert.AreEqual(1.0, network.Classify(aData));
+            Assert.AreEqual(0.0, network.Classify(bData));
         }
     }
 }
