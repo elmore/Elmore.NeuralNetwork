@@ -75,19 +75,6 @@ namespace Elmore.NeuralNetwork.Test
 
             int[] arr = aSet.BmpToBinaryArr(@"1.bmp");
 
-
-            string line = string.Empty;
-            for (int i=1;i<=arr.Length;i++)
-            {
-                line += (arr[i-1] == 1 ? "#" : ".");
-                
-                if (i%10 == 0)
-                {
-                    Console.WriteLine(line);
-                    line = string.Empty;
-                }
-            }
-
             Assert.AreEqual(100, arr.Length);
         }
 
@@ -99,25 +86,25 @@ namespace Elmore.NeuralNetwork.Test
             var aSet = new InputProcessor(@"..\..\trainingsets\dataset1\A");
             var bSet = new InputProcessor(@"..\..\trainingsets\dataset1\B");
 
-            var trainingSet = new List<KeyValuePair<double, byte[]>>
+            var trainingSet = new List<KeyValuePair<double, int[]>>
             {
-                new KeyValuePair<double, byte[]>( 1.0, aSet.JpgToBinaryArr(@"1.bmp") ),
-                new KeyValuePair<double, byte[]>( 1.0, aSet.JpgToBinaryArr(@"2.bmp") ),
-                new KeyValuePair<double, byte[]>( 1.0, aSet.JpgToBinaryArr(@"3.bmp") ),
-                new KeyValuePair<double, byte[]>( 1.0, aSet.JpgToBinaryArr(@"4.bmp") ),
-                new KeyValuePair<double, byte[]>( 1.0, aSet.JpgToBinaryArr(@"5.bmp") ),
+                new KeyValuePair<double, int[]>( 1.0, aSet.BmpToBinaryArr(@"1.bmp") ),
+                new KeyValuePair<double, int[]>( 1.0, aSet.BmpToBinaryArr(@"2.bmp") ),
+                new KeyValuePair<double, int[]>( 1.0, aSet.BmpToBinaryArr(@"3.bmp") ),
+                new KeyValuePair<double, int[]>( 1.0, aSet.BmpToBinaryArr(@"4.bmp") ),
+                new KeyValuePair<double, int[]>( 1.0, aSet.BmpToBinaryArr(@"5.bmp") ),
 
-                new KeyValuePair<double, byte[]>( 0.0, bSet.JpgToBinaryArr(@"1.jpg") ),
-                new KeyValuePair<double, byte[]>( 0.0, bSet.JpgToBinaryArr(@"2.jpg") ),
-                new KeyValuePair<double, byte[]>( 0.0, bSet.JpgToBinaryArr(@"3.jpg") ),
-                new KeyValuePair<double, byte[]>( 0.0, bSet.JpgToBinaryArr(@"4.jpg") ),
-                new KeyValuePair<double, byte[]>( 0.0, bSet.JpgToBinaryArr(@"5.jpg") ),
+                new KeyValuePair<double, int[]>( 0.0, bSet.BmpToBinaryArr(@"1.jpg") ),
+                new KeyValuePair<double, int[]>( 0.0, bSet.BmpToBinaryArr(@"2.jpg") ),
+                new KeyValuePair<double, int[]>( 0.0, bSet.BmpToBinaryArr(@"3.jpg") ),
+                new KeyValuePair<double, int[]>( 0.0, bSet.BmpToBinaryArr(@"4.jpg") ),
+                new KeyValuePair<double, int[]>( 0.0, bSet.BmpToBinaryArr(@"5.jpg") ),
             };
 
             network.Train(trainingSet);
 
-            var aData = aSet.JpgToBinaryArr(@"6.jpg");
-            var bData = bSet.JpgToBinaryArr(@"6.jpg");
+            var aData = aSet.BmpToBinaryArr(@"6.jpg");
+            var bData = bSet.BmpToBinaryArr(@"6.jpg");
 
             Assert.AreEqual(network.Classify(aData), 1.0);
             Assert.AreEqual(network.Classify(bData), 0.0);

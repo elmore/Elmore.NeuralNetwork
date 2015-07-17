@@ -9,12 +9,12 @@ namespace Elmore.NeuralNetwork
         private readonly List<Input> _inputs = new List<Input>();
         private const double _learningRate = 0.2;
 
-        public double Classify(byte[] arr)
+        public double Classify(int[] arr)
         {
             // setup all inputs
             for (var i=0; i< arr.Length; i++)
             {
-                //_inputs[i].Signal = arr[i];
+                _inputs[i].Signal = arr[i];
             }
 
             // run the network
@@ -39,7 +39,7 @@ namespace Elmore.NeuralNetwork
             _neuron.Connect(dendrite);
         }
 
-        public void Train(double desiredOutput, byte[] pattern)
+        public void Train(double desiredOutput, int[] pattern)
         {
             double output = Classify(pattern);
 
@@ -60,9 +60,9 @@ namespace Elmore.NeuralNetwork
             }
         }
 
-        public void Train(List<KeyValuePair<double, byte[]>> dataset)
+        public void Train(List<KeyValuePair<double, int[]>> dataset)
         {
-            foreach (KeyValuePair<double, byte[]> pair in dataset)
+            foreach (KeyValuePair<double, int[]> pair in dataset)
             {
                 Train(pair.Key, pair.Value);
             }
