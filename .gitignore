@@ -7,3 +7,4 @@ packages/
 *.bak
 *.dll
 *.cache
+*.suo
