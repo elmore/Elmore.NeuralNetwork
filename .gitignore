@@ -1,1 +1,9 @@
-*.dll 
+
+bin/
+tmp/
+[Dd]ebug/
+packages/
+*.tmp
+*.bak
+*.dll
+*.cache
