@@ -8,11 +8,17 @@ namespace Elmore.NeuralNetwork
 {
     public class Dendrite : ISingleInput, ISingleOutput
     {
+        // get rid of this
+        public double Input
+        {
+            get { return _input.Output(); }
+        }
+
         private ISingleOutput _input { get; set; }
 
         public double Weight { get; set; }
 
-        public Dendrite(double weight = 1)
+        public Dendrite(double weight = 0)
         {
             Weight = weight;
         }

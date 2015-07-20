@@ -47,16 +47,12 @@ namespace Elmore.NeuralNetwork
             {
                 double err = desiredOutput - output;
 
-                for (int i = 0; i < pattern.Length; i++)
+                foreach (Dendrite d in _dendrites)
                 {
-                    var newWeight = _dendrites[i].Weight + (_learningRate * err * pattern[i]);
-
-                    _dendrites[i].Weight = newWeight;
+                    d.Weight = d.Weight + (_learningRate * err * d.Input);
                 }
 
-                double newThreshold = _neuron.Threshold - (_learningRate * err);
-
-                _neuron.Threshold = newThreshold;
+                //_neuron.Threshold = _neuron.Threshold - (_learningRate * err);
             }
         }
 
