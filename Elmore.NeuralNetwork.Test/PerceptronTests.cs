@@ -78,6 +78,26 @@ namespace Elmore.NeuralNetwork.Test
             Assert.AreEqual(100, arr.Length);
         }
 
+
+        [Test]
+        public void ClassifiesNAND()
+        {
+            var network = new PerceptronFactory().BuildPerceptron(3);
+
+            var trainingSet = new List<KeyValuePair<double, int[]>>
+            {
+                new KeyValuePair<double, int[]>( 1.0, new [] {1, 0, 0 } ),
+                new KeyValuePair<double, int[]>( 1.0, new [] {1, 0, 1 } ),
+                new KeyValuePair<double, int[]>( 1.0, new [] {1, 1, 0 } ),
+                new KeyValuePair<double, int[]>( 0.0, new [] {1, 1, 1 } ),
+            };
+
+            network.Train(trainingSet);
+
+            Assert.AreEqual(1.0, network.Classify(new[] { 1, 0, 0 }));
+            Assert.AreEqual(0.0, network.Classify(new[] { 1, 1, 1 }));
+        }
+
         [Test]
         public void ClassifiesSmallImages()
         {
