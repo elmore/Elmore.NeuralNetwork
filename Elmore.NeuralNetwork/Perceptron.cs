@@ -43,19 +43,19 @@ namespace Elmore.NeuralNetwork
 
         public double Train(double desiredOutput, int[] pattern)
         {
-            Console.WriteLine("Pattern :\t{0},\t{1},\t{2}  ->  {3}", pattern[0], pattern[1], pattern[2], desiredOutput);
+            //Console.WriteLine("Pattern :\t{0},\t{1},\t{2}  ->  {3}", pattern[0], pattern[1], pattern[2], desiredOutput);
 
             double output = Classify(pattern);
 
-            Console.WriteLine("Output :\t{0}", output);
+            //Console.WriteLine("Output :\t{0}", output);
 
             double err = desiredOutput - output;
 
-            Console.WriteLine("Error :\t\t{0}", err);
+            //Console.WriteLine("Error :\t\t{0}", err);
 
             double correction = _learningRate * err;
 
-            Console.WriteLine("Correction :\t{0}", correction);
+            //Console.WriteLine("Correction :\t{0}", correction);
 
             foreach (Dendrite d in _dendrites)
             {
@@ -65,12 +65,12 @@ namespace Elmore.NeuralNetwork
             _neuron.Threshold = _neuron.Threshold - (_learningRate * err);
 
 
-            string weights = string.Empty;
-            for (int i = 0; i < _dendrites.Count; i++)
-            {
-                weights += string.Format("{0},\t", _dendrites[i].Weight);
-            }
-            Console.WriteLine("Weights :\t{0}\r", weights);
+            //string weights = string.Empty;
+            //for (int i = 0; i < _dendrites.Count; i++)
+            //{
+            //    weights += string.Format("{0},\t", _dendrites[i].Weight);
+            //}
+            //Console.WriteLine("Weights :\t{0}\r", weights);
 
             return Math.Abs(err);
         }
@@ -82,8 +82,10 @@ namespace Elmore.NeuralNetwork
             int i = 0;
             while (totalErr > maxAllowedError && i < maxIterations)
             {
-                totalErr += dataset.Sum(pair => Train(pair.Key, pair.Value));
+                totalErr = dataset.Sum(pair => Train(pair.Key, pair.Value));
                 i++;
+
+                Console.WriteLine("{0} : {1}", i, totalErr);
             }
 
             return totalErr;
