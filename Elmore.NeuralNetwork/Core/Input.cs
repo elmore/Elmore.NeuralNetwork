@@ -1,4 +1,4 @@
-﻿namespace Elmore.NeuralNetwork
+﻿namespace Elmore.NeuralNetwork.Core
 {
     public class Input : ISingleOutput
     {

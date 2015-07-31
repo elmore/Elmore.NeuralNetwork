@@ -39,16 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dendrite.cs" />
-    <Compile Include="IMulitInput.cs" />
-    <Compile Include="Input.cs" />
-    <Compile Include="ISingleInput.cs" />
-    <Compile Include="ISingleOutput.cs" />
-    <Compile Include="Neuron.cs" />
-    <Compile Include="Perceptron.cs" />
-    <Compile Include="PerceptronFactory.cs" />
+    <Compile Include="Core\Dendrite.cs" />
+    <Compile Include="Core\IMulitInput.cs" />
+    <Compile Include="Core\Input.cs" />
+    <Compile Include="Core\ISingleInput.cs" />
+    <Compile Include="Core\ISingleOutput.cs" />
+    <Compile Include="Core\Neuron.cs" />
+    <Compile Include="Perceptron\Perceptron.cs" />
+    <Compile Include="Perceptron\PerceptronFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

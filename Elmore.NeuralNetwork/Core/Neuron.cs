@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Elmore.NeuralNetwork
+namespace Elmore.NeuralNetwork.Core
 {
     public class Neuron : IMulitInput, ISingleOutput
     {

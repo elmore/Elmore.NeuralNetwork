@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Elmore.NeuralNetwork.Core;
 
-namespace Elmore.NeuralNetwork
+namespace Elmore.NeuralNetwork.Perceptron
 {
     public class Perceptron
     {

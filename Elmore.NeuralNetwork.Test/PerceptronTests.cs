@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Elmore.NeuralNetwork.Core;
+using Elmore.NeuralNetwork.Perceptron;
 using NUnit.Framework;
 
 namespace Elmore.NeuralNetwork.Test

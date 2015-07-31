@@ -1,4 +1,6 @@
-﻿namespace Elmore.NeuralNetwork
+﻿using Elmore.NeuralNetwork.Core;
+
+namespace Elmore.NeuralNetwork.Perceptron
 {
     public class PerceptronFactory
     {
