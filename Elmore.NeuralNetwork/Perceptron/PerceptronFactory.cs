@@ -17,5 +17,19 @@ namespace Elmore.NeuralNetwork.Perceptron
 
             return network;
         }
+
+        public FTPerceptron BuildFTPerceptron(int inputs)
+        {
+            var network = new FTPerceptron();
+
+            for (int i = 0; i < inputs; i++)
+            {
+                var simpleInput = new Input();
+
+                network.AddInput(simpleInput);
+            }
+
+            return network;
+        }
     }
 }

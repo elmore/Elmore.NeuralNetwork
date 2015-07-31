@@ -181,5 +181,20 @@ namespace Elmore.NeuralNetwork.Test
 
             trainingSet.ForEach(kvp => Assert.AreEqual(kvp.Key, network.Classify(kvp.Value)));
         }
+
+        [Test]
+        public void FTClassifiesBiasedData()
+        {
+            // data has 2 double inputs and an expected binary out
+            var network = new PerceptronFactory().BuildFTPerceptron(2);
+
+            var reader = new TabSeparatedListReader();
+
+            List<KeyValuePair<double, double[]>> trainingSet = reader.Read(@"..\..\trainingsets\dataset2\biased.txt");
+
+            network.Train(trainingSet);
+
+            trainingSet.ForEach(kvp => Assert.AreEqual(kvp.Key, network.Classify(kvp.Value)));
+        }
     }
 }

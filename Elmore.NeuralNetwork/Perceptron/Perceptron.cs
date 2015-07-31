@@ -87,7 +87,7 @@ namespace Elmore.NeuralNetwork.Perceptron
                 totalErr = dataset.Sum(pair => Train(pair.Key, pair.Value));
                 i++;
             }
-
+            
             return totalErr;
         }
     }

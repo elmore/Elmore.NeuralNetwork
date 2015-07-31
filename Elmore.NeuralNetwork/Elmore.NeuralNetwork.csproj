@@ -45,6 +45,7 @@
     <Compile Include="Core\ISingleInput.cs" />
     <Compile Include="Core\ISingleOutput.cs" />
     <Compile Include="Core\Neuron.cs" />
+    <Compile Include="Perceptron\FTPerceptron.cs" />
     <Compile Include="Perceptron\Perceptron.cs" />
     <Compile Include="Perceptron\PerceptronFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
