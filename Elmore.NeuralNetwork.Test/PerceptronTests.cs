@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Elmore.NeuralNetwork.Core;
 using Elmore.NeuralNetwork.Perceptron;
 using NUnit.Framework;
@@ -79,6 +80,15 @@ namespace Elmore.NeuralNetwork.Test
             Assert.AreEqual(100, arr.Length);
         }
 
+        [Test]
+        public void CanReadTabSeparatedList()
+        {
+            var reader = new TabSeparatedListReader();
+
+            List<KeyValuePair<double, double[]>> set = reader.Read(@"..\..\trainingsets\dataset2\biased.txt");
+
+            Assert.AreEqual(208, set.Count);
+        }
 
         [Test]
         public void ClassifiesNAND()
@@ -156,6 +166,20 @@ namespace Elmore.NeuralNetwork.Test
 
             Assert.AreEqual(1.0, network.Classify(aSet.BmpToBinaryArr(@"7.jpg")));
             Assert.AreEqual(0.0, network.Classify(bSet.BmpToBinaryArr(@"7.jpg")));
+        }
+
+        [Test]
+        public void ClassifiesBiasedData()
+        {
+            var network = new PerceptronFactory().BuildPerceptron(2);
+
+            var reader = new TabSeparatedListReader();
+
+            List<KeyValuePair<double, double[]>> trainingSet = reader.Read(@"..\..\trainingsets\dataset2\biased.txt");
+
+            //network.Train(trainingSet);
+
+
         }
     }
 }
