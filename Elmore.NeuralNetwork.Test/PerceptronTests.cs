@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Elmore.NeuralNetwork.Core;
 using Elmore.NeuralNetwork.Perceptron;
@@ -169,6 +170,7 @@ namespace Elmore.NeuralNetwork.Test
         [Test]
         public void ClassifiesBiasedData()
         {
+            // data has 2 double inputs and an expected binary out
             var network = new PerceptronFactory().BuildPerceptron(2);
 
             var reader = new TabSeparatedListReader();
@@ -177,7 +179,7 @@ namespace Elmore.NeuralNetwork.Test
 
             network.Train(trainingSet);
 
-
+            trainingSet.ForEach(kvp => Assert.AreEqual(kvp.Key, network.Classify(kvp.Value)));
         }
     }
 }
