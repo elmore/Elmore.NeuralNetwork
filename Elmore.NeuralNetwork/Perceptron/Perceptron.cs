@@ -12,7 +12,7 @@ namespace Elmore.NeuralNetwork.Perceptron
         private readonly List<Input> _inputs = new List<Input>();
         private const double _learningRate = 0.1;
 
-        public double Classify(int[] arr)
+        public double Classify(double[] arr)
         {
             // setup all inputs
             for (var i=0; i< arr.Length; i++)
@@ -42,7 +42,7 @@ namespace Elmore.NeuralNetwork.Perceptron
             _neuron.Connect(dendrite);
         }
 
-        public double Train(double desiredOutput, int[] pattern)
+        public double Train(double desiredOutput, double[] pattern)
         {
             // see what it does right now
             double output = Classify(pattern);
@@ -63,7 +63,7 @@ namespace Elmore.NeuralNetwork.Perceptron
             return Math.Abs(err);
         }
 
-        public double Train(List<KeyValuePair<double, int[]>> dataset, double maxAllowedError = 0.0, int maxIterations = 100)
+        public double Train(List<KeyValuePair<double, double[]>> dataset, double maxAllowedError = 0.0, int maxIterations = 100)
         {
             double totalErr = double.MaxValue;
 

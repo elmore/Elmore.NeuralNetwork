@@ -32,13 +32,13 @@ namespace Elmore.NeuralNetwork.Test
             }
         }
 
-        public int[] BmpToBinaryArr(string file)
+        public double[] BmpToBinaryArr(string file)
         {
             string path = FullPath(file);
 
             var bmp = new Bitmap(path);
 
-            var arr = new int[bmp.Width*bmp.Height];
+            var arr = new double[bmp.Width*bmp.Height];
 
             int i=0;
 
@@ -46,7 +46,7 @@ namespace Elmore.NeuralNetwork.Test
             {
                 for (int y = 0; y < bmp.Height; y++)
                 {
-                    arr[i] = bmp.GetPixel(y, x).R > 100 ? 0 : 1;
+                    arr[i] = bmp.GetPixel(y, x).R > 100 ? 0.0 : 1.0;
 
                     i++;
                 }
