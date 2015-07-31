@@ -7,11 +7,11 @@ namespace Elmore.NeuralNetwork
     {
         private readonly List<ISingleOutput> _dendrites = new List<ISingleOutput>();
 
-        public double Threshold { get; set; }
+        private double _threshold;
 
         public Neuron(double threshold = 0.5)
         {
-            Threshold = threshold;
+            _threshold = threshold;
         }
 
         public void Connect(ISingleOutput dendrite)
@@ -24,11 +24,16 @@ namespace Elmore.NeuralNetwork
             return ActivationFunc();
         }
 
+        public void Update(double correction)
+        {
+            _threshold -= correction;
+        }
+
         private double ActivationFunc()
         {
             double summation = _dendrites.Sum(d => d.Output());
 
-            return (summation > Threshold) ? 1 : 0;
+            return (summation > _threshold) ? 1 : 0;
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -33,20 +32,6 @@ namespace Elmore.NeuralNetwork.Test
             }
         }
 
-        //public int[] BmpToBinaryArr(string file)
-        //{
-        //    byte[] arr = BmpToArr(file);
-
-        //    var intArr = new int[arr.Length];
-
-        //    for(var i=0; i<arr.Length; i++)
-        //    {
-        //        intArr[i] = arr[i] > 100 ? 1 : 0;
-        //    }
-
-        //    return intArr;
-        //}
-
         public int[] BmpToBinaryArr(string file)
         {
             string path = FullPath(file);
@@ -69,34 +54,5 @@ namespace Elmore.NeuralNetwork.Test
 
             return arr;
         }
-
-        //public byte[] BmpToArr(string file)
-        //{
-        //    string path = FullPath(file);
-
-        //    var bmp = new Bitmap(path);
-
-        //    var rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
-        //    BitmapData bmpData = bmp.LockBits(rect, ImageLockMode.ReadOnly, bmp.PixelFormat);
-
-        //    // Get the address of the first line.
-        //    IntPtr ptr = bmpData.Scan0;
-
-        //    // if the stride is bigger than the width i get an array thats too big
-        //    //bmpData.Stride = bmp.Width;
-
-        //    // Declare an array to hold the bytes of the bitmap.
-        //    //int bytes = Math.Abs(bmpData.Stride) * bmp.Height;
-        //    int bytes = bmp.Width * bmp.Height;
-        //    byte[] rgbValues = new byte[bytes];
-
-        //    // Copy the RGB values into the array.
-        //    System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
-
-        //    // Unlock the bits.
-        //    bmp.UnlockBits(bmpData);
-
-        //    return rgbValues;
-        //}
     }
 }

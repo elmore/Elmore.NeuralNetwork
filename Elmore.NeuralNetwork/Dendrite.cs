@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Resources;
-using System.Text;
-
+﻿
 namespace Elmore.NeuralNetwork
 {
     public class Dendrite : ISingleInput, ISingleOutput
     {
-        // get rid of this
-        public double Input
-        {
-            get { return _input.Output(); }
-        }
-
         private ISingleOutput _input { get; set; }
 
         public double Weight { get; set; }
@@ -33,6 +22,11 @@ namespace Elmore.NeuralNetwork
         public void SetConnection(ISingleOutput input)
         {
             _input = input;
+        }
+
+        public void Update(double correction)
+        {
+            Weight += correction * _input.Output();
         }
     }
 }

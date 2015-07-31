@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Elmore.NeuralNetwork
+﻿namespace Elmore.NeuralNetwork
 {
     public class PerceptronFactory
     {

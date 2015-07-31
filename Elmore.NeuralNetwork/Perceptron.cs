@@ -43,35 +43,22 @@ namespace Elmore.NeuralNetwork
 
         public double Train(double desiredOutput, int[] pattern)
         {
-            //Console.WriteLine("Pattern :\t{0},\t{1},\t{2}  ->  {3}", pattern[0], pattern[1], pattern[2], desiredOutput);
-
+            // see what it does right now
             double output = Classify(pattern);
 
-            //Console.WriteLine("Output :\t{0}", output);
-
+            // get the delta as error
             double err = desiredOutput - output;
 
-            //Console.WriteLine("Error :\t\t{0}", err);
-
+            // calculate the amount to correct by
             double correction = _learningRate * err;
 
-            //Console.WriteLine("Correction :\t{0}", correction);
+            // update the weighted dendrites
+            _dendrites.ForEach(d => d.Update(correction));
 
-            foreach (Dendrite d in _dendrites)
-            {
-                d.Weight += correction * d.Input;
-            }
+            // update the threshold
+            _neuron.Update(correction);
 
-            _neuron.Threshold = _neuron.Threshold - (_learningRate * err);
-
-
-            //string weights = string.Empty;
-            //for (int i = 0; i < _dendrites.Count; i++)
-            //{
-            //    weights += string.Format("{0},\t", _dendrites[i].Weight);
-            //}
-            //Console.WriteLine("Weights :\t{0}\r", weights);
-
+            // return the modulus error for halting the training loop
             return Math.Abs(err);
         }
 
@@ -84,8 +71,6 @@ namespace Elmore.NeuralNetwork
             {
                 totalErr = dataset.Sum(pair => Train(pair.Key, pair.Value));
                 i++;
-
-                Console.WriteLine("{0} : {1}", i, totalErr);
             }
 
             return totalErr;
