@@ -5,6 +5,20 @@ using Elmore.NeuralNetwork.Core;
 
 namespace Elmore.NeuralNetwork.Perceptron
 {
+    /// <summary>
+    /// this perceptron implementation uses a linear activation function, 
+    /// with a variable threshold. this allows it to deal with bias in the data
+    /// 
+    ///     y                              y
+    ///     ^                              ^
+    ///     |  - + \\  +                   |  - \\ +   +
+    ///     | -    +\\ +   +               | -   \\  + +   +
+    ///     | - -    \\ +                  | - -  \\    +
+    ///     | -  -  + \\  +                | -  -  \\ +   +
+    ///     ---------------------> x       --------------------> x
+    ///        fixed threshold                variable threshold
+    /// 
+    /// </summary>
     public class Perceptron
     {
         private readonly Neuron _neuron = new Neuron(0);
