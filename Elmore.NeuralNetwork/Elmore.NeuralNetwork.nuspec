@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Elmore.NeuralNetwork</title>
+    <authors>Tom Elmore</authors>
+    <owners>Tom Elmore</owners>
+    <projectUrl>https://github.com/elmore/Elmore.NeuralNetwork</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A toy neural network lib</description>
+    <copyright>Copyright 2015</copyright>
+    <tags>NeuralNetwork</tags>
+  </metadata>
+</package>
