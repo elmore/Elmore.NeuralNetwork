@@ -1,6 +1,4 @@
-using Elmore.NeuralNetwork.Core;
-
-namespace Elmore.NeuralNetwork.Perceptron
+namespace Elmore.NeuralNetwork.Core.Factories
 {
     public interface INeuronFactory
     {

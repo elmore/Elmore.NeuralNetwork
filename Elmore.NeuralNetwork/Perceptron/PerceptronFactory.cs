@@ -1,4 +1,5 @@
 ﻿using Elmore.NeuralNetwork.Core;
+using Elmore.NeuralNetwork.Core.Factories;
 
 namespace Elmore.NeuralNetwork.Perceptron
 {
@@ -30,14 +31,6 @@ namespace Elmore.NeuralNetwork.Perceptron
             }
 
             return network;
-        }
-    }
-
-    public class StepNeuronFactory : INeuronFactory
-    {
-        public INeuron Create()
-        {
-            return new StepNeuron(0);
         }
     }
 }

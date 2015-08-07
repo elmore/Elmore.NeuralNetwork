@@ -48,9 +48,10 @@
     <Compile Include="Core\SigmoidNeuron.cs" />
     <Compile Include="Core\StepNeuron.cs" />
     <Compile Include="Perceptron\FTPerceptron.cs" />
-    <Compile Include="Perceptron\INeuronFactory.cs" />
+    <Compile Include="Core\Factories\INeuronFactory.cs" />
     <Compile Include="Perceptron\Perceptron.cs" />
     <Compile Include="Perceptron\PerceptronFactory.cs" />
+    <Compile Include="Core\Factories\StepNeuronFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Elmore.NeuralNetwork.Core;
+using Elmore.NeuralNetwork.Core.Factories;
 
 namespace Elmore.NeuralNetwork.Perceptron
 {
