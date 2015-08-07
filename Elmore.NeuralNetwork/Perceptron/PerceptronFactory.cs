@@ -32,5 +32,19 @@ namespace Elmore.NeuralNetwork.Perceptron
 
             return network;
         }
+
+        public FTPerceptron BuildSigmoidFTPerceptron(int inputs)
+        {
+            var network = new FTPerceptron(new SigmoidNeuronFactory());
+
+            for (int i = 0; i < inputs; i++)
+            {
+                var simpleInput = new Input();
+
+                network.AddInput(simpleInput);
+            }
+
+            return network;
+        }
     }
 }

@@ -196,5 +196,24 @@ namespace Elmore.NeuralNetwork.Test
 
             trainingSet.ForEach(kvp => Assert.AreEqual(kvp.Key, network.Classify(kvp.Value)));
         }
+
+        [Test]
+        public void SigmoidFTClassifiesNAND()
+        {
+            var network = new PerceptronFactory().BuildSigmoidFTPerceptron(3);
+
+            var trainingSet = new List<KeyValuePair<double, double[]>>
+            {
+                new KeyValuePair<double, double[]>( 1.0, new [] {1.0, 0.0, 0.0 } ),
+                new KeyValuePair<double, double[]>( 1.0, new [] {1.0, 0.0, 1.0 } ),
+                new KeyValuePair<double, double[]>( 1.0, new [] {1.0, 1.0, 0.0 } ),
+                new KeyValuePair<double, double[]>( 0.0, new [] {1.0, 1.0, 1.0 } ),
+            };
+
+            network.Train(trainingSet);
+
+            Assert.AreEqual(1.0, network.Classify(new[] { 1.0, 0.0, 0.0 }));
+            Assert.AreEqual(0.0, network.Classify(new[] { 1.0, 1.0, 1.0 }));
+        }
     }
 }

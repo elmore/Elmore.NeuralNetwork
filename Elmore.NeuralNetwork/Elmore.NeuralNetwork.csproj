@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Dendrite.cs" />
+    <Compile Include="Core\Factories\SigmoidNeuronFactory.cs" />
     <Compile Include="Core\IMulitInput.cs" />
     <Compile Include="Core\INeuron.cs" />
     <Compile Include="Core\Input.cs" />
