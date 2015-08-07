@@ -26,7 +26,7 @@ namespace Elmore.NeuralNetwork.Test
             var dendrite3 = new Dendrite();
             dendrite3.SetConnection(in3);
 
-            var neuron = new Neuron();
+            var neuron = new StepNeuron();
 
             neuron.Connect(dendrite1);
             neuron.Connect(dendrite2);
@@ -64,7 +64,7 @@ namespace Elmore.NeuralNetwork.Test
             var dendrite2 = new Dendrite(weight);
             dendrite2.SetConnection(input2);
 
-            var neuron = new Neuron(threshold);
+            var neuron = new StepNeuron(threshold);
             neuron.Connect(dendrite1);
             neuron.Connect(dendrite2);
 

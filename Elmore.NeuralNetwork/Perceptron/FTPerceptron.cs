@@ -12,13 +12,17 @@ namespace Elmore.NeuralNetwork.Perceptron
     /// </summary>
     public class FTPerceptron
     {
-        private readonly Neuron _neuron = new Neuron(0);
+        private readonly INeuron _neuron;
         private readonly List<Dendrite> _dendrites = new List<Dendrite>();
         private readonly List<Input> _inputs = new List<Input>();
         private const double _learningRate = 0.1;
 
-        public FTPerceptron()
+        public FTPerceptron(INeuronFactory neuronFactory)
         {
+            // get a neuron - could be anything since this encapsulates 
+            // the learning rule
+            _neuron = neuronFactory.Create();
+
             // this is the unit input which will handle any bias
             var simpleInput = new Input(1.0);
 

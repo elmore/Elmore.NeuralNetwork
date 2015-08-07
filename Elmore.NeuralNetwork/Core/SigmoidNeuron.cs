@@ -1,18 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Elmore.NeuralNetwork.Core
 {
-    public class Neuron : IMulitInput, ISingleOutput
+    public class SigmoidNeuron : INeuron
     {
         private readonly List<ISingleOutput> _dendrites = new List<ISingleOutput>();
 
-        private double _threshold;
-
-        public Neuron(double threshold = 0.5)
-        {
-            _threshold = threshold;
-        }
+        public SigmoidNeuron() { }
 
         public void Connect(ISingleOutput dendrite)
         {
@@ -26,14 +22,14 @@ namespace Elmore.NeuralNetwork.Core
 
         public void Update(double correction)
         {
-            _threshold -= correction;
+            // sigmoid doesnt do any update
         }
 
         private double ActivationFunc()
         {
             double summation = _dendrites.Sum(d => d.Output());
 
-            return (summation > _threshold) ? 1 : 0;
+            return (1 / (1 + Math.Pow(Math.E, summation)));
         }
     }
 }

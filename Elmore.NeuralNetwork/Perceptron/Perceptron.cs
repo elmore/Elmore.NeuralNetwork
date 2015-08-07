@@ -21,10 +21,15 @@ namespace Elmore.NeuralNetwork.Perceptron
     /// </summary>
     public class Perceptron
     {
-        private readonly Neuron _neuron = new Neuron(0);
+        private readonly INeuron _neuron;
         private readonly List<Dendrite> _dendrites = new List<Dendrite>();
         private readonly List<Input> _inputs = new List<Input>();
         private const double _learningRate = 0.1;
+
+        public Perceptron(INeuronFactory neuronFactory)
+        {
+            _neuron = neuronFactory.Create();
+        }
 
         public double Classify(double[] arr)
         {

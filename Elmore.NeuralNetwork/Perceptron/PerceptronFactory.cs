@@ -6,7 +6,7 @@ namespace Elmore.NeuralNetwork.Perceptron
     {
         public Perceptron BuildPerceptron(int inputs)
         {
-            var network = new Perceptron();
+            var network = new Perceptron(new StepNeuronFactory());
 
             for (int i = 0; i < inputs; i++)
             {
@@ -20,7 +20,7 @@ namespace Elmore.NeuralNetwork.Perceptron
 
         public FTPerceptron BuildFTPerceptron(int inputs)
         {
-            var network = new FTPerceptron();
+            var network = new FTPerceptron(new StepNeuronFactory());
 
             for (int i = 0; i < inputs; i++)
             {
@@ -30,6 +30,14 @@ namespace Elmore.NeuralNetwork.Perceptron
             }
 
             return network;
+        }
+    }
+
+    public class StepNeuronFactory : INeuronFactory
+    {
+        public INeuron Create()
+        {
+            return new StepNeuron(0);
         }
     }
 }
