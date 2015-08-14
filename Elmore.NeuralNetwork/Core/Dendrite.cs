@@ -1,7 +1,7 @@
 ﻿
 namespace Elmore.NeuralNetwork.Core
 {
-    public class Dendrite : ISingleInput, ISingleOutput
+    public class Dendrite : ISingleInput, ISingleOutput, ITrainable
     {
         private ISingleOutput _input { get; set; }
 

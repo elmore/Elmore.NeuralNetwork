@@ -27,6 +27,16 @@ namespace Elmore.NeuralNetwork.Core
         public void Update(double correction)
         {
             _threshold -= correction;
+
+            foreach (var d in _dendrites)
+            {
+                var trainable = d as ITrainable;
+
+                if (trainable != null)
+                {
+                    trainable.Update(correction);
+                }
+            }
         }
 
         private double ActivationFunc()

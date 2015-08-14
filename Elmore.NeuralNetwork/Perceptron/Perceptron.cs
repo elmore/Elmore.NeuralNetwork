@@ -73,14 +73,7 @@ namespace Elmore.NeuralNetwork.Perceptron
             // calculate the amount to correct by
             double correction = _learningRate * err;
 
-            // update the weighted dendrites - dendrites are all 
-
-            // connected to the neuron so maybe the update method could 
-            // 'propogate' that back to them. that might even set us up 
-            // for back-prop-proper :D
-            _dendrites.ForEach(d => d.Update(correction));
-
-            // update the threshold
+            // update the neuron - this propogates back to the dendrites etc
             _neuron.Update(correction);
 
             // return the modulus error for halting the training loop
@@ -97,7 +90,12 @@ namespace Elmore.NeuralNetwork.Perceptron
                 totalErr = dataset.Sum(pair => Train(pair.Key, pair.Value));
                 i++;
             }
-            
+
+            if (i == maxIterations)
+            {
+                Console.WriteLine("Hit max iterations before error reached {0}", maxAllowedError);
+            }
+
             return totalErr;
         }
     }

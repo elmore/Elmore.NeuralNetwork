@@ -81,8 +81,8 @@ namespace Elmore.NeuralNetwork.Perceptron
             // calculate the amount to correct by
             double correction = _learningRate * err;
 
-            // update the weighted dendrites
-            _dendrites.ForEach(d => d.Update(correction));
+            // update the neuron - this propogates back to the dendrites etc
+            _neuron.Update(correction);
 
             // return the modulus error for halting the training loop
             return Math.Abs(err);

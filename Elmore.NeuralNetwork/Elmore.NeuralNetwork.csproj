@@ -46,6 +46,7 @@
     <Compile Include="Core\Input.cs" />
     <Compile Include="Core\ISingleInput.cs" />
     <Compile Include="Core\ISingleOutput.cs" />
+    <Compile Include="Core\ITrainable.cs" />
     <Compile Include="Core\SigmoidNeuron.cs" />
     <Compile Include="Core\StepNeuron.cs" />
     <Compile Include="Perceptron\FTPerceptron.cs" />
