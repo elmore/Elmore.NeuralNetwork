@@ -22,9 +22,9 @@ namespace Elmore.NeuralNetwork.Perceptron
     /// </summary>
     public class Perceptron
     {
-        private readonly INeuron _neuron;
-        private readonly List<Input> _inputs = new List<Input>();
-        private const double _learningRate = 0.1;
+        protected readonly INeuron _neuron;
+        protected readonly List<Input> _inputs = new List<Input>();
+        protected const double _learningRate = 0.1;
 
         public Perceptron(INeuronFactory neuronFactory)
         {
