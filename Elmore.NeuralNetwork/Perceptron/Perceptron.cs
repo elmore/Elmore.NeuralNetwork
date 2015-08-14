@@ -24,7 +24,6 @@ namespace Elmore.NeuralNetwork.Perceptron
     {
         protected readonly INeuron _neuron;
         protected readonly List<Input> _inputs = new List<Input>();
-        protected const double _learningRate = 0.1;
 
         public Perceptron(INeuronFactory neuronFactory)
         {
@@ -66,11 +65,8 @@ namespace Elmore.NeuralNetwork.Perceptron
             // get the delta as error
             double err = desiredOutput - output;
 
-            // calculate the amount to correct by
-            double correction = _learningRate * err;
-
             // update the neuron - this propogates back to the dendrites etc
-            _neuron.Update(correction);
+            _neuron.Update(err);
 
             // return the modulus error for halting the training loop
             return Math.Abs(err);

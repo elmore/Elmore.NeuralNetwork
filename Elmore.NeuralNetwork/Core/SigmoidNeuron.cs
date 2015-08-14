@@ -6,12 +6,14 @@ namespace Elmore.NeuralNetwork.Core
 {
     public class SigmoidNeuron : INeuron
     {
+        private readonly double _threshold;
         private readonly List<ISingleOutput> _dendrites = new List<ISingleOutput>();
-        private readonly double _threshold = 0.9;
+        private readonly double _learningRate;
 
-        public SigmoidNeuron(double threshold = 0.9)
+        public SigmoidNeuron(double threshold = 0.9, double learningRate = 0.1)
         {
             _threshold = threshold;
+            _learningRate = learningRate;
         }
 
         public void Connect(ISingleOutput dendrite)
@@ -24,8 +26,10 @@ namespace Elmore.NeuralNetwork.Core
             return ActivationFunc() >= _threshold ? 1.0 : 0;
         }
 
-        public void Update(double correction)
+        public void Update(double error)
         {
+            double correction = _learningRate * error;
+
             foreach (var d in _dendrites)
             {
                 var trainable = d as ITrainable;
