@@ -22,9 +22,17 @@ namespace Elmore.NeuralNetwork.Perceptron
             _hiddenLayer = new List<INeuron>();
         }
 
-        public void Train(List<KeyValuePair<double[], double[]>> trainingSet)
+        public void Train(double[] target, double[] input)
         {
-            
+            double[] output = Classify(input);
+
+            //  (1 - output[0]) term is apparently due to sigmoid function 
+            // (havent grokked that yet) so maybe the error calculation 
+            // should be the responsibility of the neuron?
+            double err0 = (1 - output[0]) * (target[0] - output[0]);
+            double err1 = (1 - output[1]) * (target[1] - output[1]);
+
+            //_outputs[0].Update();
         }
 
         public void AddInput(Input input)
@@ -42,7 +50,19 @@ namespace Elmore.NeuralNetwork.Perceptron
             _hiddenLayer.Add(neuron);
         }
 
-        public double[] Classify(double[] value)
+        public double[] Classify(double[] arr)
+        {
+            // setup all inputs
+            for (var i = 0; i < arr.Length; i++)
+            {
+                _inputs[i].Signal = arr[i];
+            }
+
+            // run the network
+            return new [] { _outputs[0].Output(), _outputs[1].Output() };
+        }
+
+        public void Train(List<KeyValuePair<double[], double[]>> trainingSet)
         {
             throw new System.NotImplementedException();
         }
