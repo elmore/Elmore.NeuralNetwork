@@ -28,15 +28,13 @@ namespace Elmore.NeuralNetwork.Core
 
         public void Update(double error)
         {
-            double correction = _learningRate * error;
-
             foreach (var d in _dendrites)
             {
                 var trainable = d as ITrainable;
 
                 if (trainable != null)
                 {
-                    trainable.Update(correction);
+                    trainable.Update(error);
                 }
             }
         }

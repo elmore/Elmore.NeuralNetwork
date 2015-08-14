@@ -37,7 +37,7 @@ namespace Elmore.NeuralNetwork.Core
 
                 if (trainable != null)
                 {
-                    trainable.Update(correction);
+                    trainable.Update(error);
                 }
             }
         }

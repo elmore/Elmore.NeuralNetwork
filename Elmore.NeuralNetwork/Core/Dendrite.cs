@@ -3,30 +3,33 @@ namespace Elmore.NeuralNetwork.Core
 {
     public class Dendrite : ISingleInput, ISingleOutput, ITrainable
     {
-        private ISingleOutput _input { get; set; }
-
+        private ISingleOutput Input { get; set; }
+        private readonly double _learningRate;
         public double Weight { get; set; }
 
-        public Dendrite(double weight = 0)
+        public Dendrite(double weight = 0, double learningRate = 0.1)
         {
             Weight = weight;
+            _learningRate = learningRate;
         }
 
         public double Output()
         {
-            var signal = _input.Output();
+            var signal = Input.Output();
 
             return (signal * Weight);
         }
 
         public void SetConnection(ISingleOutput input)
         {
-            _input = input;
+            Input = input;
         }
 
-        public void Update(double correction)
+        public void Update(double error)
         {
-            Weight += correction * _input.Output();
+            double correction = _learningRate * error;
+
+            Weight += correction * Input.Output();
         }
     }
 }
