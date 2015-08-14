@@ -23,7 +23,6 @@ namespace Elmore.NeuralNetwork.Perceptron
     public class Perceptron
     {
         private readonly INeuron _neuron;
-        private readonly List<Dendrite> _dendrites = new List<Dendrite>();
         private readonly List<Input> _inputs = new List<Input>();
         private const double _learningRate = 0.1;
 
@@ -48,9 +47,6 @@ namespace Elmore.NeuralNetwork.Perceptron
         {
             // dendrite has weight
             var dendrite = new Dendrite();
-
-            // keep ref for training
-            _dendrites.Add(dendrite);
 
             // keep ref for classifying
             _inputs.Add(simpleInput);
