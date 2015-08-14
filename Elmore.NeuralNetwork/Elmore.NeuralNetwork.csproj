@@ -50,6 +50,7 @@
     <Compile Include="Core\StepNeuron.cs" />
     <Compile Include="Perceptron\FTPerceptron.cs" />
     <Compile Include="Core\Factories\INeuronFactory.cs" />
+    <Compile Include="Perceptron\MultiLayerPerceptron.cs" />
     <Compile Include="Perceptron\Perceptron.cs" />
     <Compile Include="Perceptron\PerceptronFactory.cs" />
     <Compile Include="Core\Factories\StepNeuronFactory.cs" />

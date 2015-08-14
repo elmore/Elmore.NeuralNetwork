@@ -204,16 +204,39 @@ namespace Elmore.NeuralNetwork.Test
 
             var trainingSet = new List<KeyValuePair<double, double[]>>
             {
-                new KeyValuePair<double, double[]>( 1.0, new [] {1.0, 0.0, 0.0 } ),
-                new KeyValuePair<double, double[]>( 1.0, new [] {1.0, 0.0, 1.0 } ),
-                new KeyValuePair<double, double[]>( 1.0, new [] {1.0, 1.0, 0.0 } ),
-                new KeyValuePair<double, double[]>( 0.0, new [] {1.0, 1.0, 1.0 } ),
+                new KeyValuePair<double, double[]>( 1.0, new [] { 1.0, 0.0, 0.0 } ),
+                new KeyValuePair<double, double[]>( 1.0, new [] { 1.0, 0.0, 1.0 } ),
+                new KeyValuePair<double, double[]>( 1.0, new [] { 1.0, 1.0, 0.0 } ),
+                new KeyValuePair<double, double[]>( 0.0, new [] { 1.0, 1.0, 1.0 } ),
             };
 
             network.Train(trainingSet);
 
             Assert.AreEqual(1.0, network.Classify(new[] { 1.0, 0.0, 0.0 }));
             Assert.AreEqual(0.0, network.Classify(new[] { 1.0, 1.0, 1.0 }));
+        }
+
+        [Test]
+        public void MultiLayerPerceptronClassifies()
+        {
+            // fixed arrangement for now ...
+            var network = new PerceptronFactory().BuildMultiLayerPerceptron();
+
+            var trainingSet = new List<KeyValuePair<double[], double[]>>
+            {
+                new KeyValuePair<double[], double[]>( new [] { 0.0, 1.0 }, new [] { 0.0, 1.0, 1.0, 0.0 } ),
+                new KeyValuePair<double[], double[]>( new [] { 1.0, 0.1 }, new [] { 1.0, 0.0, 1.0, 0.0 } ),
+                new KeyValuePair<double[], double[]>( new [] { 1.0, 1.0 }, new [] { 1.0, 1.0, 0.0, 0.0 } ),
+            };
+
+            network.Train(trainingSet);
+
+            trainingSet.ForEach(kvp =>
+            {
+                Assert.AreEqual(kvp.Key[0], network.Classify(kvp.Value)[0]);
+
+                Assert.AreEqual(kvp.Key[1], network.Classify(kvp.Value)[1]);
+            });
         }
     }
 }
