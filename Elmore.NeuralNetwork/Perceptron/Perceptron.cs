@@ -73,7 +73,11 @@ namespace Elmore.NeuralNetwork.Perceptron
             // calculate the amount to correct by
             double correction = _learningRate * err;
 
-            // update the weighted dendrites
+            // update the weighted dendrites - dendrites are all 
+
+            // connected to the neuron so maybe the update method could 
+            // 'propogate' that back to them. that might even set us up 
+            // for back-prop-proper :D
             _dendrites.ForEach(d => d.Update(correction));
 
             // update the threshold
