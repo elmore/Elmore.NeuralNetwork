@@ -27,9 +27,7 @@ namespace Elmore.NeuralNetwork.Core
 
         public void Update(double error)
         {
-            double correction = _learningRate * error;
-
-            _threshold -= correction;
+            _threshold -= _learningRate * error;
 
             foreach (var d in _dendrites)
             {
