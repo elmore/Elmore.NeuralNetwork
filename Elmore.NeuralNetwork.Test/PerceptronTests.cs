@@ -200,7 +200,7 @@ namespace Elmore.NeuralNetwork.Test
         [Test]
         public void SigmoidFTClassifiesNAND()
         {
-            var network = new PerceptronFactory().BuildSigmoidFTPerceptron(3);
+            FTPerceptron network = new PerceptronFactory().BuildSigmoidFTPerceptron(3);
 
             var trainingSet = new List<KeyValuePair<double, double[]>>
             {
@@ -210,10 +210,12 @@ namespace Elmore.NeuralNetwork.Test
                 new KeyValuePair<double, double[]>( 0.0, new [] { 1.0, 1.0, 1.0 } ),
             };
 
-            network.Train(trainingSet);
+            // gets all trained up nice well within 0.8
+            network.Train(trainingSet, maxAllowedError: 0.2);
 
-            Assert.AreEqual(1.0, network.Classify(new[] { 1.0, 0.0, 0.0 }));
-            Assert.AreEqual(0.0, network.Classify(new[] { 1.0, 1.0, 1.0 }));
+            // kinda hacky but basically with sigmoid activation youre never going to hit 1 and 0..
+            Assert.Greater(network.Classify(new[] { 1.0, 0.0, 0.0 }), 0.9);
+            Assert.Less(network.Classify(new[] { 1.0, 1.0, 1.0 }), 0.1);
         }
 
         [Test]
@@ -229,7 +231,7 @@ namespace Elmore.NeuralNetwork.Test
                 new KeyValuePair<double[], double[]>( new [] { 1.0, 1.0 }, new [] { 1.0, 1.0, 0.0, 0.0 } ),
             };
 
-            network.Train(trainingSet);
+            network.Train(trainingSet, maxAllowedError: 0.2, maxIterations: 10000);
 
             trainingSet.ForEach(kvp =>
             {

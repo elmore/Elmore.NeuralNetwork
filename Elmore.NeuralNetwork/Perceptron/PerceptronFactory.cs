@@ -50,6 +50,8 @@ namespace Elmore.NeuralNetwork.Perceptron
 
         public MultiLayerPerceptron BuildMultiLayerPerceptron()
         {
+            // 4 inputs, 3 hidden neurons, 2 outputs, fully connected
+
             var factory = new SigmoidNeuronFactory();
 
             var network = new MultiLayerPerceptron(factory);
@@ -76,22 +78,49 @@ namespace Elmore.NeuralNetwork.Perceptron
             network.AddInput(i3);
             network.AddInput(i4);
 
+            // hidden layer
             network.AddHiddenNeuron(hn1);
             network.AddHiddenNeuron(hn2);
             network.AddHiddenNeuron(hn3);
 
+            // output layer
             network.AddOutput(on1);
             network.AddOutput(on2);
 
-            var d11 = new Dendrite();
-            var d12 = new Dendrite();
-            var d13 = new Dendrite();
-            var d21 = new Dendrite();
-            var d22 = new Dendrite();
-            var d23 = new Dendrite();
-            var d31 = new Dendrite();
-            var d32 = new Dendrite();
-            var d33 = new Dendrite();
+
+            // hidden connections
+            var dh11 = new Dendrite(learningRate: 1);
+            var dh12 = new Dendrite(learningRate: 1);
+            var dh21 = new Dendrite(learningRate: 1);
+            var dh22 = new Dendrite(learningRate: 1);
+            var dh31 = new Dendrite(learningRate: 1);
+            var dh32 = new Dendrite(learningRate: 1);
+
+            dh11.SetConnection(hn1);
+            dh12.SetConnection(hn1);
+            dh21.SetConnection(hn2);
+            dh22.SetConnection(hn2);
+            dh31.SetConnection(hn3);
+            dh32.SetConnection(hn3);
+
+            on1.Connect(dh11);
+            on1.Connect(dh21);
+            on1.Connect(dh31);
+            on2.Connect(dh12);
+            on2.Connect(dh22);
+            on2.Connect(dh32);
+
+
+            // input dendrite connections
+            var d11 = new Dendrite(learningRate: 1);
+            var d12 = new Dendrite(learningRate: 1);
+            var d13 = new Dendrite(learningRate: 1);
+            var d21 = new Dendrite(learningRate: 1);
+            var d22 = new Dendrite(learningRate: 1);
+            var d23 = new Dendrite(learningRate: 1);
+            var d31 = new Dendrite(learningRate: 1);
+            var d32 = new Dendrite(learningRate: 1);
+            var d33 = new Dendrite(learningRate: 1);
 
             d11.SetConnection(i1);
             d12.SetConnection(i1);

@@ -85,7 +85,7 @@ namespace Elmore.NeuralNetwork.Perceptron
 
             if (i == maxIterations)
             {
-                Console.WriteLine("Hit max iterations before error reached {0}", maxAllowedError);
+                Console.WriteLine("Hit max iterations before error reached {0}. Actual error = {1}", maxAllowedError, totalErr);
             }
 
             return totalErr;
